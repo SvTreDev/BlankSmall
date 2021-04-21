@@ -1,0 +1,46 @@
+{
+  "name": "BlankSmall",
+  "version": "1.0.0",
+  "description": "30KB Blank ultra small theme for test hosting speed, development next theme, use as temp for change theme to replace default theme (heavy and updated regularly) Clean, simple, unstyled, semi-minified, unformatted, and valid code, SEO-friendly, jQuery-enabled, no programmer comments, standardized and as white label as possible, and most importantly, the CSS is reset for cross-browser-compatability and no intrusive visual CSS styles have been added whatsoever. A perfect skeleton theme. Thank you https://svtre.com",
+  "author": "hoangdacviet",
+  "license": "GPL-2.0-or-later",
+  "keywords": [
+    "WordPress",
+    "Theme"
+  ],
+  "homepage": "https://svtre.com/blanksmall",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com /SvTreDev/BlankSmall.git"
+  },
+  "bugs": {
+    "url": "https://github.com /SvTreDev/BlankSmall/issues"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^12.1.0",
+    "dir-archiver": "^1.1.1",
+    "node-sass": "^4.14.1",
+    "rtlcss": "^2.5.0"
+  },
+  "rtlcssConfig": {
+    "options": {
+      "autoRename": false,
+      "autoRenameStrict": false,
+      "blacklist": {},
+      "clean": true,
+      "greedy": false,
+      "processUrls": false,
+      "stringMap": []
+    },
+    "plugins": [],
+    "map": false
+  },
+  "scripts": {
+    "watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
+    "compile:css": "node-sass sass/ -o ./ && stylelint '*.css' --fix || true && stylelint '*.css' --fix",
+    "compile:rtl": "rtlcss style.css style-rtl.css",
+    "lint:scss": "wp-scripts lint-style 'sass/**/*.scss'",
+    "lint:js": "wp-scripts lint-js 'js/*.js'",
+    "bundle": "dir-archiver --src . --dest ../_s.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map"
+  }
+}
